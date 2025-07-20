@@ -63,7 +63,8 @@
 ## 快速开始 🚀
 
 ### 在线预览
-访问 [GitHub Pages](https://xiaoweiruby.github.io/echo-app/) 查看在线演示
+- **Vercel部署**: [https://echo-app-xi.vercel.app/](https://echo-app-xi.vercel.app/) 🚀
+- **GitHub Pages**: [https://xiaoweiruby.github.io/echo-app/](https://xiaoweiruby.github.io/echo-app/) 📄
 
 ### 本地运行
 ```bash
