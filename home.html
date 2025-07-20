@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回声 - 首页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col bg-gray-50">
+    <!-- iOS状态栏 -->
+    <div class="h-11 gradient-bg flex justify-between items-center px-6 text-white text-sm font-semibold">
+        <div class="flex items-center space-x-1">
+            <span>9:41</span>
+        </div>
+        <div class="flex items-center space-x-1">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <i class="fas fa-battery-three-quarters text-xs"></i>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="bg-white shadow-sm border-b border-gray-100 px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-teal-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-wave-square text-white text-sm"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800">回声</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-bell text-gray-600 text-sm"></i>
+                </button>
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user text-gray-600 text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 px-6 py-6 overflow-y-auto pb-20">
+        <!-- 欢迎区域 -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">你好，欢迎回来 👋</h2>
+            <p class="text-gray-600">今天想要表达什么，或者需要处理什么声音？</p>
+        </div>
+
+        <!-- 核心功能模块 -->
+        <div class="space-y-6 mb-8">
+            <!-- 塑言模块 -->
+            <div class="card-hover bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl p-6 text-white cursor-pointer">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-pen-fancy text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">塑言</h3>
+                            <p class="text-blue-100 text-sm">雕琢你的想法</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-right text-xl opacity-70"></i>
+                </div>
+                <p class="text-blue-100 leading-relaxed mb-4">
+                    将零散的灵感转化为清晰有力的表达，让AI帮你找到属于自己的声音
+                </p>
+                <div class="flex items-center space-x-4 text-sm">
+                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">✨ AI雕琢</span>
+                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">📝 多场景</span>
+                </div>
+            </div>
+
+            <!-- 听心模块 -->
+            <div class="card-hover bg-gradient-to-br from-teal-400 to-teal-600 rounded-3xl p-6 text-white cursor-pointer">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-heart text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">听心</h3>
+                            <p class="text-teal-100 text-sm">倾听内心声音</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-right text-xl opacity-70"></i>
+                </div>
+                <p class="text-teal-100 leading-relaxed mb-4">
+                    温柔接纳外界声音，剥离噪音找到本音，指引你奏出和谐的回应
+                </p>
+                <div class="flex items-center space-x-4 text-sm">
+                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🌊 涟漪分析</span>
+                    <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">🎵 谐音指导</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 快速访问 -->
+        <div class="mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">快速访问</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 card-hover cursor-pointer">
+                    <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center mb-3">
+                        <i class="fas fa-history text-purple-500"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-1">历史记录</h4>
+                    <p class="text-gray-500 text-sm">查看过往对话</p>
+                </div>
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 card-hover cursor-pointer">
+                    <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center mb-3">
+                        <i class="fas fa-cog text-orange-500"></i>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-1">设置</h4>
+                    <p class="text-gray-500 text-sm">个性化配置</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 今日统计 -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">今日使用</h3>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-blue-500 mb-1">3</div>
+                    <div class="text-gray-500 text-sm">塑言次数</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-teal-500 mb-1">2</div>
+                    <div class="text-gray-500 text-sm">听心次数</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-purple-500 mb-1">15</div>
+                    <div class="text-gray-500 text-sm">使用分钟</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-3 safe-area-bottom">
+        <div class="flex justify-around items-center">
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-home text-blue-500 text-lg"></i>
+                </div>
+                <span class="text-xs text-blue-500 font-medium">首页</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-pen-fancy text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">塑言</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-heart text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">听心</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-history text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">记录</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-user text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">我的</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

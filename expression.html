@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回声 - 塑言</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .message-bubble {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col bg-gray-50">
+    <!-- iOS状态栏 -->
+    <div class="h-11 gradient-bg flex justify-between items-center px-6 text-white text-sm font-semibold">
+        <div class="flex items-center space-x-1">
+            <span>9:41</span>
+        </div>
+        <div class="flex items-center space-x-1">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <i class="fas fa-battery-three-quarters text-xs"></i>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="bg-white shadow-sm border-b border-gray-100 px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-arrow-left text-gray-600 text-sm"></i>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-pen-fancy text-white text-sm"></i>
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-800">塑言</h1>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-magic text-gray-600 text-sm"></i>
+                </button>
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-ellipsis-h text-gray-600 text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 场景选择 -->
+    <div class="bg-white px-6 py-3 border-b border-gray-100">
+        <div class="flex space-x-3 overflow-x-auto">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">💼 工作汇报</button>
+            <button class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">🎤 演讲</button>
+            <button class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">💬 日常交流</button>
+            <button class="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap">📧 邮件</button>
+        </div>
+    </div>
+
+    <!-- 对话区域 -->
+    <div class="flex-1 px-6 py-4 overflow-y-auto pb-32 space-y-4">
+        <!-- AI助手介绍 -->
+        <div class="message-bubble">
+            <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-robot text-white text-sm"></i>
+                </div>
+                <div class="bg-white rounded-2xl rounded-tl-md p-4 shadow-sm border border-gray-100 max-w-xs">
+                    <p class="text-gray-800 text-sm leading-relaxed">
+                        你好！我是你的表达助手 ✨<br><br>
+                        请分享你想要表达的想法，我会帮你雕琢成清晰有力的方案。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 用户输入示例 -->
+        <div class="message-bubble">
+            <div class="flex items-start space-x-3 justify-end">
+                <div class="bg-blue-500 rounded-2xl rounded-tr-md p-4 max-w-xs">
+                    <p class="text-white text-sm leading-relaxed">
+                        我想向老板汇报这个月的项目进展，但是思路比较乱，不知道怎么组织语言...
+                    </p>
+                </div>
+                <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-user text-gray-600 text-sm"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI优化结果 -->
+        <div class="message-bubble">
+            <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-robot text-white text-sm"></i>
+                </div>
+                <div class="bg-white rounded-2xl rounded-tl-md p-4 shadow-sm border border-gray-100 max-w-sm">
+                    <div class="mb-3">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <i class="fas fa-sparkles text-blue-500 text-sm"></i>
+                            <span class="text-blue-600 font-semibold text-sm">优化建议</span>
+                        </div>
+                        <p class="text-gray-800 text-sm leading-relaxed mb-3">
+                            <strong>汇报结构建议：</strong><br>
+                            1. 项目概况（30秒）<br>
+                            2. 关键成果（1分钟）<br>
+                            3. 遇到挑战（30秒）<br>
+                            4. 下月计划（30秒）
+                        </p>
+                        <div class="bg-blue-50 rounded-xl p-3 mb-3">
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                <strong>开场白示例：</strong><br>
+                                "各位领导好，我来汇报一下本月项目进展。整体来说，我们按计划完成了核心功能开发，用户反馈积极，同时也发现了一些优化空间..."
+                            </p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs">📋 复制文本</button>
+                            <button class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs">🔄 重新优化</button>
+                            <button class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs">💾 保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+            <div class="flex items-end space-x-3">
+                <button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-microphone text-gray-600"></i>
+                </button>
+                <div class="flex-1 bg-gray-100 rounded-2xl px-4 py-3">
+                    <textarea 
+                        placeholder="分享你的想法，让AI帮你雕琢表达..."
+                        class="w-full bg-transparent resize-none outline-none text-gray-800 text-sm"
+                        rows="2"
+                    ></textarea>
+                </div>
+                <button class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-paper-plane text-white"></i>
+                </button>
+            </div>
+            <div class="flex items-center justify-between mt-3 text-xs text-gray-500">
+                <div class="flex items-center space-x-4">
+                    <span>💡 支持语音输入</span>
+                    <span>📝 多轮优化</span>
+                </div>
+                <span>剩余次数: 8/10</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-6 py-3 safe-area-bottom">
+        <div class="flex justify-around items-center">
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-home text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">首页</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-pen-fancy text-blue-500 text-lg"></i>
+                </div>
+                <span class="text-xs text-blue-500 font-medium">塑言</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-heart text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">听心</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-history text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">记录</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-user text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">我的</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

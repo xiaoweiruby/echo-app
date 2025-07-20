@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回声 - 听心</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .listening-bg {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .ripple-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .ripple {
+            position: absolute;
+            border: 2px solid rgba(79, 172, 254, 0.3);
+            border-radius: 50%;
+            animation: ripple 3s linear infinite;
+        }
+        .ripple-1 {
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            left: 50px;
+        }
+        .ripple-2 {
+            width: 140px;
+            height: 140px;
+            top: 30px;
+            left: 30px;
+            animation-delay: 1s;
+        }
+        .ripple-3 {
+            width: 180px;
+            height: 180px;
+            top: 10px;
+            left: 10px;
+            animation-delay: 2s;
+        }
+        @keyframes ripple {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes pulse-glow {
+            from {
+                box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
+            }
+            to {
+                box-shadow: 0 0 40px rgba(79, 172, 254, 0.8);
+            }
+        }
+        .emotion-wave {
+            animation: emotion-wave 2s ease-in-out infinite;
+        }
+        @keyframes emotion-wave {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .analysis-card {
+            animation: slideUp 0.6s ease-out;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col listening-bg">
+    <!-- iOS状态栏 -->
+    <div class="h-11 gradient-bg flex justify-between items-center px-6 text-white text-sm font-semibold">
+        <div class="flex items-center space-x-1">
+            <span>9:41</span>
+        </div>
+        <div class="flex items-center space-x-1">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <i class="fas fa-battery-three-quarters text-xs"></i>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="bg-white bg-opacity-90 backdrop-blur-sm shadow-sm border-b border-white border-opacity-50 px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-arrow-left text-gray-600 text-sm"></i>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-heart text-white text-sm"></i>
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-800">听心</h1>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-brain text-gray-600 text-sm"></i>
+                </button>
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-ellipsis-h text-gray-600 text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 px-6 py-6 overflow-y-auto pb-24">
+        <!-- 涟漪动画区域 -->
+        <div class="text-center mb-8">
+            <div class="ripple-container mb-6">
+                <div class="ripple ripple-1"></div>
+                <div class="ripple ripple-2"></div>
+                <div class="ripple ripple-3"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center pulse-glow">
+                    <i class="fas fa-heart text-white text-xl emotion-wave"></i>
+                </div>
+            </div>
+            <h2 class="text-xl font-semibold text-white mb-2">倾听内心的声音</h2>
+            <p class="text-white text-opacity-80 text-sm">分享困扰你的话语，让我帮你找到内心的平静</p>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="bg-white bg-opacity-90 backdrop-blur-sm rounded-3xl p-6 mb-6 shadow-lg border border-white border-opacity-50">
+            <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2">分享困扰你的声音 🌊</label>
+                <textarea 
+                    placeholder="例如：同事说我的方案不够成熟，让我很沮丧..."
+                    class="w-full bg-gray-50 rounded-2xl px-4 py-3 text-gray-800 text-sm resize-none outline-none border border-gray-200 focus:border-teal-400 transition-colors"
+                    rows="4"
+                ></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <button class="flex items-center space-x-2 bg-teal-100 text-teal-600 px-3 py-2 rounded-xl text-sm font-medium">
+                        <i class="fas fa-microphone"></i>
+                        <span>语音输入</span>
+                    </button>
+                    <button class="flex items-center space-x-2 bg-gray-100 text-gray-600 px-3 py-2 rounded-xl text-sm font-medium">
+                        <i class="fas fa-image"></i>
+                        <span>截图</span>
+                    </button>
+                </div>
+                <button class="bg-gradient-to-r from-teal-400 to-teal-600 text-white px-6 py-2 rounded-xl font-medium">
+                    开始分析
+                </button>
+            </div>
+        </div>
+
+        <!-- 分析结果 -->
+        <div class="space-y-4">
+            <!-- 情感分析 -->
+            <div class="analysis-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-5 shadow-lg border border-white border-opacity-50">
+                <div class="flex items-center space-x-2 mb-4">
+                    <i class="fas fa-heart text-teal-500"></i>
+                    <h3 class="font-semibold text-gray-800">情感分析</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-sad-tear text-red-500 text-xl"></i>
+                        </div>
+                        <p class="text-sm font-medium text-gray-700">沮丧</p>
+                        <p class="text-xs text-gray-500">75%</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i class="fas fa-question-circle text-orange-500 text-xl"></i>
+                        </div>
+                        <p class="text-sm font-medium text-gray-700">困惑</p>
+                        <p class="text-xs text-gray-500">60%</p>
+                    </div>
+                </div>
+                <div class="bg-teal-50 rounded-xl p-3">
+                    <p class="text-teal-700 text-sm leading-relaxed">
+                        <strong>情感洞察：</strong>你正在经历自我怀疑和挫败感，这是成长过程中的正常反应。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 本音剥离 -->
+            <div class="analysis-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-5 shadow-lg border border-white border-opacity-50">
+                <div class="flex items-center space-x-2 mb-4">
+                    <i class="fas fa-filter text-blue-500"></i>
+                    <h3 class="font-semibold text-gray-800">本音剥离</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-blue-50 rounded-xl p-3">
+                        <p class="text-blue-700 text-sm mb-1"><strong>核心事实：</strong></p>
+                        <p class="text-blue-600 text-sm">同事对你的方案提出了改进建议</p>
+                    </div>
+                    <div class="bg-yellow-50 rounded-xl p-3">
+                        <p class="text-yellow-700 text-sm mb-1"><strong>情感噪音：</strong></p>
+                        <p class="text-yellow-600 text-sm">"不够成熟"的表述触发了你的自我否定</p>
+                    </div>
+                    <div class="bg-green-50 rounded-xl p-3">
+                        <p class="text-green-700 text-sm mb-1"><strong>积极视角：</strong></p>
+                        <p class="text-green-600 text-sm">这是一个学习和改进的机会</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 谐音指导 -->
+            <div class="analysis-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-5 shadow-lg border border-white border-opacity-50">
+                <div class="flex items-center space-x-2 mb-4">
+                    <i class="fas fa-music text-purple-500"></i>
+                    <h3 class="font-semibold text-gray-800">谐音指导</h3>
+                </div>
+                <div class="bg-purple-50 rounded-xl p-4">
+                    <p class="text-purple-700 font-medium text-sm mb-2">建议回应策略：</p>
+                    <p class="text-purple-600 text-sm leading-relaxed mb-3">
+                        "谢谢你的反馈，我很重视你的意见。能具体说说哪些方面可以改进吗？我想让这个方案更完善。"
+                    </p>
+                    <div class="flex space-x-2 mb-3">
+                        <span class="bg-purple-200 text-purple-700 px-2 py-1 rounded-full text-xs">🤝 开放态度</span>
+                        <span class="bg-purple-200 text-purple-700 px-2 py-1 rounded-full text-xs">📈 成长思维</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="bg-teal-100 text-teal-700 px-3 py-2 rounded-xl text-sm font-medium">
+                            💬 练习对话
+                        </button>
+                        <button class="bg-blue-100 text-blue-700 px-3 py-2 rounded-xl text-sm font-medium">
+                            🧘 情绪调节
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur-sm border-t border-gray-200 px-6 py-3 safe-area-bottom">
+        <div class="flex justify-around items-center">
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-home text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">首页</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-pen-fancy text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">塑言</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-heart text-teal-500 text-lg"></i>
+                </div>
+                <span class="text-xs text-teal-500 font-medium">听心</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-history text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">记录</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-user text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">我的</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

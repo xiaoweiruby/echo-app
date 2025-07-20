@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回声 - 记录</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .history-bg {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        .record-card {
+            animation: slideUp 0.6s ease-out;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .stat-card {
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col history-bg">
+    <!-- iOS状态栏 -->
+    <div class="h-11 gradient-bg flex justify-between items-center px-6 text-white text-sm font-semibold">
+        <div class="flex items-center space-x-1">
+            <span>9:41</span>
+        </div>
+        <div class="flex items-center space-x-1">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <i class="fas fa-battery-three-quarters text-xs"></i>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="bg-white bg-opacity-90 backdrop-blur-sm shadow-sm border-b border-white border-opacity-50 px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-arrow-left text-gray-600 text-sm"></i>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-pink-400 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-history text-white text-sm"></i>
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-800">记录</h1>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-search text-gray-600 text-sm"></i>
+                </button>
+                <button class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-filter text-gray-600 text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div class="flex-1 px-6 py-6 overflow-y-auto pb-24">
+        <!-- 统计卡片 -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="stat-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white border-opacity-50">
+                <div class="flex items-center space-x-2 mb-2">
+                    <i class="fas fa-pen-fancy text-blue-500"></i>
+                    <span class="text-gray-700 font-medium text-sm">塑言次数</span>
+                </div>
+                <p class="text-2xl font-bold text-gray-800">23</p>
+                <p class="text-xs text-gray-500">本周 +5</p>
+            </div>
+            <div class="stat-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white border-opacity-50">
+                <div class="flex items-center space-x-2 mb-2">
+                    <i class="fas fa-heart text-teal-500"></i>
+                    <span class="text-gray-700 font-medium text-sm">听心次数</span>
+                </div>
+                <p class="text-2xl font-bold text-gray-800">18</p>
+                <p class="text-xs text-gray-500">本周 +3</p>
+            </div>
+        </div>
+
+        <!-- 时间分组记录 -->
+        <div class="space-y-6">
+            <!-- 今日 -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center space-x-2">
+                    <i class="fas fa-calendar-day text-blue-500"></i>
+                    <span>今日</span>
+                </h2>
+                <div class="space-y-3">
+                    <div class="record-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white border-opacity-50">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-teal-400 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-heart text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-medium text-gray-800">听心分析</h3>
+                                    <span class="text-xs text-gray-500">14:30</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2">工作压力导致的焦虑情绪分析</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-teal-100 text-teal-700 px-2 py-1 rounded-full text-xs">😰 焦虑</span>
+                                    <span class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs">💪 已调节</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="record-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white border-opacity-50">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-pen-fancy text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-medium text-gray-800">塑言优化</h3>
+                                    <span class="text-xs text-gray-500">10:15</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2">会议发言稿的表达优化</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">📈 提升</span>
+                                    <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">✨ 已应用</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 昨日 -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center space-x-2">
+                    <i class="fas fa-calendar-minus text-purple-500"></i>
+                    <span>昨日</span>
+                </h2>
+                <div class="space-y-3">
+                    <div class="record-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white border-opacity-50">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-pen-fancy text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-medium text-gray-800">塑言优化</h3>
+                                    <span class="text-xs text-gray-500">19:45</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2">客户邮件的专业表达改进</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">💼 商务</span>
+                                    <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">✅ 完成</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="record-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white border-opacity-50">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-teal-400 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-heart text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-medium text-gray-800">听心分析</h3>
+                                    <span class="text-xs text-gray-500">16:20</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2">人际关系困扰的情感梳理</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs">😔 困扰</span>
+                                    <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">🌟 已缓解</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 本周早些时候 -->
+            <div>
+                <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center space-x-2">
+                    <i class="fas fa-calendar-week text-green-500"></i>
+                    <span>本周早些时候</span>
+                </h2>
+                <div class="space-y-3">
+                    <div class="record-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white border-opacity-50">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-pen-fancy text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-medium text-gray-800">塑言优化</h3>
+                                    <span class="text-xs text-gray-500">周二</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2">项目汇报PPT的演讲稿优化</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">🎯 演讲</span>
+                                    <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">🏆 成功</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="record-card bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white border-opacity-50">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-gradient-to-br from-teal-400 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-heart text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="font-medium text-gray-800">听心分析</h3>
+                                    <span class="text-xs text-gray-500">周一</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-2">新环境适应的心理调适</p>
+                                <div class="flex items-center space-x-2">
+                                    <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs">🌱 成长</span>
+                                    <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">💪 适应中</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 加载更多 -->
+        <div class="text-center mt-8">
+            <button class="bg-white bg-opacity-90 backdrop-blur-sm text-gray-600 px-6 py-3 rounded-2xl font-medium shadow-lg border border-white border-opacity-50">
+                加载更多记录
+            </button>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur-sm border-t border-gray-200 px-6 py-3 safe-area-bottom">
+        <div class="flex justify-around items-center">
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-home text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">首页</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-pen-fancy text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">塑言</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-heart text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">听心</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-history text-purple-500 text-lg"></i>
+                </div>
+                <span class="text-xs text-purple-500 font-medium">记录</span>
+            </div>
+            <div class="flex flex-col items-center py-1">
+                <div class="w-6 h-6 flex items-center justify-center mb-1">
+                    <i class="fas fa-user text-gray-400 text-lg"></i>
+                </div>
+                <span class="text-xs text-gray-400">我的</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

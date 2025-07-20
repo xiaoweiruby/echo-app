@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回声 - 启动页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes pulse-glow {
+            from {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+            }
+            to {
+                box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+            }
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="h-screen overflow-hidden">
+    <!-- iOS状态栏 -->
+    <div class="h-11 gradient-bg flex justify-between items-center px-6 text-white text-sm font-semibold">
+        <div class="flex items-center space-x-1">
+            <span>9:41</span>
+        </div>
+        <div class="flex items-center space-x-1">
+            <i class="fas fa-signal text-xs"></i>
+            <i class="fas fa-wifi text-xs"></i>
+            <i class="fas fa-battery-three-quarters text-xs"></i>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="flex-1 gradient-bg flex flex-col items-center justify-center px-8 text-white text-center" style="height: calc(100vh - 44px);">
+        <!-- Logo区域 -->
+        <div class="fade-in mb-8">
+            <div class="w-24 h-24 bg-white bg-opacity-20 rounded-3xl flex items-center justify-center mb-6 pulse-glow mx-auto">
+                <i class="fas fa-wave-square text-4xl text-white"></i>
+            </div>
+            <h1 class="text-4xl font-bold mb-3">回声</h1>
+            <p class="text-lg text-white text-opacity-90 mb-2">Echo</p>
+            <p class="text-sm text-white text-opacity-70">基于AI的个人表达与情感处理助手</p>
+        </div>
+
+        <!-- 核心功能预览 -->
+        <div class="fade-in mb-12" style="animation-delay: 0.5s;">
+            <div class="flex space-x-8 mb-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-3">
+                        <i class="fas fa-pen-fancy text-2xl"></i>
+                    </div>
+                    <p class="text-sm font-medium">塑言</p>
+                    <p class="text-xs text-white text-opacity-70">雕琢表达</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mb-3">
+                        <i class="fas fa-heart text-2xl"></i>
+                    </div>
+                    <p class="text-sm font-medium">听心</p>
+                    <p class="text-xs text-white text-opacity-70">倾听内心</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 启动提示 -->
+        <div class="fade-in" style="animation-delay: 1s;">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="flex space-x-1">
+                    <div class="w-2 h-2 bg-white rounded-full animate-bounce"></div>
+                    <div class="w-2 h-2 bg-white rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                    <div class="w-2 h-2 bg-white rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                </div>
+                <span class="text-sm text-white text-opacity-80">正在启动...</span>
+            </div>
+            <p class="text-xs text-white text-opacity-60">让AI帮你找到属于自己的声音</p>
+        </div>
+    </div>
+</body>
+</html>
